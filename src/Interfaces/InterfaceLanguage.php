@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Badian\Translit\Src;
+namespace Interfaces;
 
 /**
  * Interface for operate with custom languages.

@@ -1,18 +1,25 @@
 {
-    "name": "badian/translit",
-    "description": "The plugin for translitirating cyrlic string into latin. May be need for creating friendly url.",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Aleksei Baryshnikov",
-            "email": "ljlogin@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=7.1"
-    },
-    "autoload": {
-        "psr-4": { "Translit\\": ["src/", "lib/"] }
+  "name": "badian/translit",
+  "description": "The plugin for translitirating cyrlic string into latin. May be need for creating friendly url.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aleksei Baryshnikov",
+      "email": "ljlogin@gmail.com"
     }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Classes\\": [
+        "src/Classes"
+      ],
+      "Interfaces\\": [
+        "src/Interfaces"
+      ]
+    }
+  }
 }

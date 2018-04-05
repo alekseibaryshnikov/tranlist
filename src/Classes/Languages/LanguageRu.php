@@ -2,10 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Badian\Translit\Src;
+namespace Classes\Languages;
+
+use Interfaces\InterfaceLanguage;
 
 class LanguageRu implements InterfaceLanguage
 {
+    use \Classes\Utils;
+
     // Array with letters for current language as key and latin equivalent as value.
     private $currentLangLetters;
 
@@ -13,7 +17,6 @@ class LanguageRu implements InterfaceLanguage
 
     public function __construct($inputString)
     {
-        parent::__construct();
         $this->inputString = strip_tags(trim($inputString));
         $this->currentLangLetters = [
             "а" => "a",
@@ -49,7 +52,17 @@ class LanguageRu implements InterfaceLanguage
             "э" => "e",
             "ю" => "yu",
             "я" => "ya",
-            " " => "-"
+            " " => "-",
+            "1" => "1",
+            "2" => "2",
+            "3" => "3",
+            "4" => "4",
+            "5" => "5",
+            "6" => "6",
+            "7" => "7",
+            "8" => "8",
+            "9" => "9",
+            "0" => "0"
         ];
     }
 
@@ -63,18 +76,16 @@ class LanguageRu implements InterfaceLanguage
     public function convert(): string
     {
         $output = [];
+        $arrayString = $this->utf8Split(mb_strtolower($this->inputString));
 
-        array_walk(str_split($this->inputString), function (&$value) use (&$output) {
-            if (array_key_exists($this->currentLangLetters, $value)) {
-                $output[] = $this->currentLangLetters[$value];
-            } elseif (ctype_digit($value)) {
-                $output = $value;
+        array_walk($arrayString, function ($value) use ($output) {
+            if (key_exists($value, $this->currentLangLetters)) {
+                echo $this->currentLangLetters[$value];
             } else {
-                $output[] = "-";
+                echo "-";
             }
         });
 
         return implode("", $output);
     }
-
 }
