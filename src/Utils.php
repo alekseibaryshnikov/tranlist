@@ -6,11 +6,11 @@ trait Utils
 {
     /**
      * Convert string into array with UTF-8 encoding.
-     * @param $str
+     * @param string $str
      * @param int $len
      * @return array
      */
-    function utf8Split($str, $len = 1): array
+    function utf8Split(string $str, $len = 1): array
     {
         $arr = array();
         $strLen = mb_strlen($str, 'UTF-8');
