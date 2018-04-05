@@ -15,8 +15,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Classes\\": [
-        "src/Classes"
+      "Translit\\": [
+        "src"
       ],
       "Interfaces\\": [
         "src/Interfaces"

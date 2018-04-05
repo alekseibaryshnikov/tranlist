@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Interfaces;
+namespace Translit\Interfaces;
 
 /**
  * Interface for operate with custom languages.

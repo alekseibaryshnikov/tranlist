@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Classes;
+namespace Translit;
 
-use Classes\Languages\LanguageRu;
+use Translit\Languages\LanguageRu;
 
 class Converter
 {

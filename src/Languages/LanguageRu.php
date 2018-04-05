@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Classes\Languages;
+namespace Translit\Languages;
 
-use Interfaces\InterfaceLanguage;
+use Translit\Interfaces\InterfaceLanguage;
 
-class LanguageRu implements InterfaceLanguage
+class LanguageRu extends AbstractLanguage implements InterfaceLanguage
 {
-    use \Classes\Utils;
+    use \Translit\Utils;
 
     // Array with letters for current language as key and latin equivalent as value.
     private $currentLangLetters;
@@ -17,6 +17,8 @@ class LanguageRu implements InterfaceLanguage
 
     public function __construct($inputString)
     {
+        parent::__construct();
+
         $this->inputString = strip_tags(trim($inputString));
         $this->currentLangLetters = [
             "а" => "a",
@@ -62,7 +64,8 @@ class LanguageRu implements InterfaceLanguage
             "7" => "7",
             "8" => "8",
             "9" => "9",
-            "0" => "0"
+            "0" => "0",
+            "!" => "!"
         ];
     }
 
@@ -75,16 +78,15 @@ class LanguageRu implements InterfaceLanguage
      */
     public function convert(): string
     {
-        $output = [];
         $arrayString = $this->utf8Split(mb_strtolower($this->inputString));
 
-        array_walk($arrayString, function ($value) use ($output) {
+        $output = array_map(function ($value) use ($output) {
             if (key_exists($value, $this->currentLangLetters)) {
-                echo $this->currentLangLetters[$value];
+                return $this->currentLangLetters[$value];
             } else {
-                echo "-";
+                return "-";
             }
-        });
+        }, $arrayString);
 
         return implode("", $output);
     }
