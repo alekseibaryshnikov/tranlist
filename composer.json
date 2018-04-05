@@ -2,6 +2,7 @@
   "name": "badian/translit",
   "description": "The plugin for translitirating cyrlic string into latin. May be need for creating friendly url.",
   "type": "library",
+  "version": "1.0.0",
   "license": "MIT",
   "authors": [
     {
@@ -26,5 +27,6 @@
     "url": "git://github.com/alekseibaryshnikov/tranlist.git",
     "type": "git",
     "reference": "master"
-  }
+  },
+  "prefer-stable": true
 }
