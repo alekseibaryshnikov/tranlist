@@ -27,7 +27,7 @@ class AbstractLanguage
      * @param array $currentLanguage
      * @return string
      */
-    public function convert(string $inputString, array $currentLanguage) : string
+    public function abstractConvert(string $inputString, array $currentLanguage) : string
     {
         $output = [];
 

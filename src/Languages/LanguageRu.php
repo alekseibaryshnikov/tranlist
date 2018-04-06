@@ -12,7 +12,7 @@ class LanguageRu extends AbstractLanguage implements InterfaceLanguage
     use \Translit\Utils;
 
     // Array with letters for current language as key and latin equivalent as value.
-    private $currentLangLetters;
+    private $ruLetters;
 
     private $inputString;
 
@@ -39,7 +39,7 @@ class LanguageRu extends AbstractLanguage implements InterfaceLanguage
 
     public function convert() : string
     {
-        $output = parent::convert($this->inputString, $this->ruLetters);
+        $output = parent::abstractConvert($this->inputString, $this->ruLetters);
         return $output;
     }
 }
